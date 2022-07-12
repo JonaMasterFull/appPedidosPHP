@@ -222,35 +222,35 @@ if (isset($_POST["flag"]) && $_POST["flag"]=="do") {
 									<ShowDetail>1</ShowDetail>
 								</OrderRequest>";
 								
-// 							$url = 'https://newport.ingrammicro.com/MUSTANG';
-// 							$strRequest = utf8_encode($xml_ingram);			
+							$url = 'https://newport.ingrammicro.com/MUSTANG';
+							$strRequest = utf8_encode($xml_ingram);			
 						
-// 						// $doc1 = new DOMDocument();
-// 						// $doc1->loadXML(utf8_decode($strRequest));
-// 						// $OReq = $customerpo."-request.xml";
-// 						// $doc1->save("$OReq");
-// $headers = array(
-//     "Content-type: text/xml",
-//     "Content-length: " . strlen($strRequest),
-//     "Connection: close",
-// );
-						// $ch=curl_init();
-						// curl_setopt($ch, CURLOPT_URL, $url);
-						// curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-						// curl_setopt($ch, CURLOPT_POST, 1) ;
-						// curl_setopt($ch, CURLOPT_POSTFIELDS, $strRequest);
-						// curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-						// curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-						// curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-						// $result = curl_exec($ch);
+						$doc1 = new DOMDocument();
+						$doc1->loadXML(utf8_decode($strRequest));
+						$OReq = $customerpo."-request.xml";
+						$doc1->save("$OReq");
+$headers = array(
+    "Content-type: text/xml",
+    "Content-length: " . strlen($strRequest),
+    "Connection: close",
+);
+						$ch=curl_init();
+						curl_setopt($ch, CURLOPT_URL, $url);
+						curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+						curl_setopt($ch, CURLOPT_POST, 1) ;
+						curl_setopt($ch, CURLOPT_POSTFIELDS, $strRequest);
+						curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+						curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+						curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+						$result = curl_exec($ch);
 						// // var_dump($strRequest);
 						// // var_dump($result);
 
-						// $doc = new DOMDocument();
-						// $doc->loadXML(utf8_decode($result));
-						// $OResp = $customerpo."-response.xml";
-						// $doc->save("$OResp");	
-						// curl_close($ch);
+						$doc = new DOMDocument();
+						$doc->loadXML(utf8_decode($result));
+						$OResp = $customerpo."-response.xml";
+						$doc->save("$OResp");	
+						curl_close($ch);
 
 								$ErrorStatus = $doc->getElementsByTagName("ErrorStatus");
 								$ErrorNumber = $ErrorStatus->item(0)->getAttribute("ErrorNumber");
