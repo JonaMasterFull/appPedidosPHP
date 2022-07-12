@@ -27,7 +27,7 @@
 			<div class="column">
 			
 				<h3>REQUEST</h3>
-<form class="ui form" action="pedido.php" method="post">
+<form class="ui form" action="index.php" method="post">
 	<input type="hidden" name="flag" value="do">
 
 
@@ -243,8 +243,8 @@ $headers = array(
 						curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 						curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 						$result = curl_exec($ch);
-						var_dump($strRequest);
-						var_dump($result);
+						// var_dump($strRequest);
+						// var_dump($result);
 
 						$doc = new DOMDocument();
 						$doc->loadXML(utf8_decode($result));
